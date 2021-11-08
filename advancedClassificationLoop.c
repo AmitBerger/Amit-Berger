@@ -1,43 +1,73 @@
-#include <stdio.h>
-#include <math.h>
- 
-int isArmstrong(int num) {
-   int originalNum, remainder, n = 0, flag;
-   double result = 0.0;
+# include <stdio.h> 
+/*#include <math.h>*/
 
-   for (originalNum = num; originalNum != 0; ++n) {
-      originalNum /= 10;
-   }
 
-   for (originalNum = num; originalNum != 0; originalNum /= 10) {
-      remainder = originalNum % 10;
 
-   
-      result += pow(remainder, n);
-   }
-
-   if (round(result) == num)
-      flag = 1;
-   else
-      flag = 0;
-   return flag;
+int power(int base, int n){
+    int ans=base;
+    for (int i=0;i<n-1;i++){
+        ans=ans*base;
+    }
+    return ans;
 }
 
-int isPalindrome(int number){
+int isArmstrong(int n){
 
-  int temp, remainder, rev=0;
+    int count=0;
+    int x;
+    int ans=0;
+    int m=n;
+    while (m>=1){
+        m=m/10;
+        count=count+1;
+    }
+    m=n;
+    
+    for (int i=0;i<count;i++){
+        x=m%10;
+        m=m/10;
+        ans=ans+power(x, count);
+    }
 
-  temp = number;
+    if (n==ans){
+        // printf("%d is an armstrong number\n", n);
+        return 1;
+    }
+    else{
+        // printf("%d is not an armstrong number\n", n);
+        return 0;
+    }
+}
 
-  while( number!=0 ) {
- 
-     remainder = number % 10;
 
-     rev = rev*10 + remainder;
+int isPalindrome(int n){
+    int count=0;
+    int flag=1;
+    int m=n;
 
-     number /= 10;
-  }
-
-  if ( rev == temp ) return 1;
-  else return 0;
+    while (m>=1){
+        m=m/10;
+        count=count+1;
+    }
+    int arr[count];
+    m=n;
+    for (int i=0; i<count; i++){
+        arr[i]=m%10;
+        m=m/10;
+    }
+    int right=count;
+    for (int i=0; i<count/2;i++){
+        if (arr[i]!= arr[right-1]){
+            flag=0;
+        }
+        right=right-1;
+    }
+    if (flag==1){
+       
+        return 1;
+    }
+    else{
+       
+        return 0; 
+    }
 }
