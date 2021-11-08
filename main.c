@@ -1,5 +1,8 @@
 # include <stdio.h>
+
 # include "NumClass.h"
+
+
 
 int main(){
 
@@ -58,6 +61,12 @@ int main(){
          }
     }
     printf("\n");
+    
+    
+    
+    
     return(0);
+
+
 
 }
