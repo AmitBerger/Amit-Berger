@@ -1,11 +1,14 @@
 #include <stdio.h>  
-int fact(int r) {  
-    int mul=1;  
-    for(int i=1;i<=r;i++)  {  
-        mul=mul*i;  
-    }  
-    return mul;  
-      
+int fact(int  n){
+    if (n==0){
+        return 1;
+    }
+    else if (n==1){
+        return 1;
+    }
+    else{
+        return n*factorial( n-1);
+    }
 }
 int isStrong(int n)     
 {  
