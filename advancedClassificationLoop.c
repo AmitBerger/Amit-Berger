@@ -1,25 +1,26 @@
 #include <stdio.h>
+#include <math.h>
+ 
+int isArmstrong(int num) {
+   int originalNum, remainder, n = 0, flag;
+   double result = 0.0;
 
-int isArmstrong(int number) {
-  
-  int lastDigit = 0;
-  int power = 0;
-  int sum = 0;
-  int n = number;
+   for (originalNum = num; originalNum != 0; ++n) {
+      originalNum /= 10;
+   }
 
-  while(n!=0) {
+   for (originalNum = num; originalNum != 0; originalNum /= 10) {
+      remainder = originalNum % 10;
 
+   
+      result += pow(remainder, n);
+   }
 
-     lastDigit = n % 10;
-
-     power = lastDigit*lastDigit*lastDigit;
-     sum += power;
-
-     n /= 10;
-  }
-
-  if(sum == number) return 0;
-  else return 1;
+   if (round(result) == num)
+      flag = 1;
+   else
+      flag = 0;
+   return flag;
 }
 
 int isPalindrome(int number){
@@ -37,6 +38,6 @@ int isPalindrome(int number){
      number /= 10;
   }
 
-  if ( rev == temp ) return 0;
-  else return 1;
+  if ( rev == temp ) return 1;
+  else return 0;
 }
