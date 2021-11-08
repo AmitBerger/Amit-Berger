@@ -5,7 +5,7 @@ int  isPalindrome(int n){
     if(n != 0)
     {
         sum = sum *10 + n%10;
-         isPalindromeRec(n/10);   
+         isPalindrome(n/10);   
     }
     else if(sum == n)
         return 1;
