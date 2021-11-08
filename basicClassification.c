@@ -10,8 +10,7 @@ int fact(int  n){
         return n*factorial( n-1);
     }
 }
-int isStrong(int n)     
-{  
+int isStrong(int n)     {  
   
     int sum=0;  
     int k=n;  
