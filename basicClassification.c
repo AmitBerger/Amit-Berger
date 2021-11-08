@@ -1,15 +1,28 @@
 # include <stdio.h>
 int isPrime(int n){
-	int i;
-	for(i=2;i<=n/2;i++)
-	{
-		if(n%i!=0)
-			continue;
-		else
-			return 1;
-	}
-	return 0;
-}
+
+    int flag=1;
+        if (n<1){
+            flag =0;
+        }
+        else if( n==1){
+            flag=1;
+        }
+        else{
+            for (int i=2; i<=n/2 && flag!=0; i++ ){
+                if (n%i==0){
+                    flag=0 ;
+                }
+            }
+        }
+        if (flag==1){
+            return 1;
+        }
+        else{
+            return 0;
+        }
+    }
+    
 
 int isStrong(int num)
 {
