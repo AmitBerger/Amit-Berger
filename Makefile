@@ -10,12 +10,16 @@ all:libclassloops.a libclassrec.a libclassloops.so libclassrec.so mains maindloo
 #all: loops loopd recursives recursived mains maindloop maindrec
 
 #creat libraries
+loops:libclassloops.a
 libclassloops.a:$(OBGECT_STATIC_LIB_LOOP)
 	$(AR) -rcs libclassloops.a $(OBGECT_STATIC_LIB_LOOP)
+recursives:libclassrec.a
 libclassrec.a:$(OBGECT_STATIC_LIB_RECURS)
 	$(AR) -rcs libclassrec.a $(OBGECT_STATIC_LIB_RECURS)
+loopd: libclassloops.so
 libclassloops.so:$(OBGECT_DYNAMIC_LIB_LOOP)
 	$(CC) -shared -o libclassloops.so $(OBGECT_DYNAMIC_LIB_LOOP)
+recursived: libclassrec.so
 libclassrec.so:$(OBGECT_DYNAMIC_LIB_RECURS)
 	$(CC) -shared -o libclassrec.so $(OBGECT_DYNAMIC_LIB_RECURS)
 
